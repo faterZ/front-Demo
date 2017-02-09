@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>CSS3水波球动画</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <style>
+        .box {position: absolute; width: 150px;height: 150px;top:20%;left:50%;margin-left: -80px;}
+        .box .content{ position: relative; width: 160px; height: 160px; border: 2px solid #00aaee; overflow: hidden; z-index: 2; border-radius: 50%; }
+        .box .content .water{ position: absolute; z-index: 1; width: 200%; height: 200%; left: -50%; top: 75%; border-radius: 40%; z-index: 114; }
+        .box .content .w1 {background: #00aaee;}
+        .box .content .w2 {left: 20%;z-index: 110;background: #B4E6FB;}
+        @-webkit-keyframes spin {
+            from {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes topant {
+            from {
+                top:100%;
+            }
+            to {
+                top:0;
+            }
+        }
+
+        @keyframes topant {
+            from {
+                top:100%;
+            }
+            to {
+                top:0;
+            }
+        }
+
+        .waterant{
+            -webkit-animation: spin 6s linear infinite,topant 30s infinite; animation: spin 6s linear infinite,topant 30s infinite;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="content">
+        <div class="water w1 waterant"></div>
+        <div class="water w2 waterant"></div>
+    </div>
+</div>
+
+
+</body></html>
