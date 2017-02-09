@@ -33,6 +33,9 @@ module.exports = {
             },
             ant:{
                 entry: []
+            },
+            video:{
+                entry: "./js/video-mine.js"
             }
         }
 

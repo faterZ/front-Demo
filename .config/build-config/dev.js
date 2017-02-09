@@ -20,6 +20,12 @@ var devEntryList = {
             filename: "./ant.html",
             template: "./ant.ejs"
         }
+    },
+    video: {
+        HtmlPluginConf: {
+            filename: "./video.html",
+            template: "./video.ejs"
+        }
     }
 }
 

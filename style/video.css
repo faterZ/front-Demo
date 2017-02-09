@@ -1,0 +1,41 @@
+.clr:before,.clr:after{content:" ";display: table;}
+.clr:after{clear:both;}
+.clr:after{*zoom:1;}
+/*body{background: #000;}*/
+#lodding{position:absolute;top:0;left:0;width: 100%;height:17.75rem;background: url(../images/qingx.png) no-repeat;background-size: 100% 100%;z-index: 100}
+#lodding.hide{opacity: 0;transition:all 1.5s;-webkit-transition:all 1.5s;}
+.mohu{width:100%;opacity: 1;}
+.text{position: absolute;top:10.09375rem;left:3.1875rem;width:3.765625rem;}
+div.status{position:absolute;top:7.90625rem;left:50%;margin-left:-.984375rem;width: 1.984375rem;height:1.984375rem;background: url(../images/status.png) no-repeat;background-size: 100% auto;z-index:100;}
+div.ldnum{background-position: left 0;font-size: .375rem;color:#fff;line-height: 1.984375rem;text-align: center;}
+div.play{background-position: left bottom;}
+
+video{position: absolute;top:0;left:0;width:100%;}
+
+.adend{position: absolute;top:0;left:0;width:100%;display: none;}
+.adend img{display: block;border:none;}
+#btns{position:absolute;top:10.4rem;left:.8rem;width:8.4rem;height:3.5rem;display: none;}
+#btns i{float:left;width:25%;height:100%;}
+#applink{position:absolute;top:13.609375rem;left:1.703125rem;width:6.5625rem;height:1.125rem;display: none;z-index:200;}
+.fxiu{float:left;width:2.96875rem;height:100%;}
+.flook{float: right;width:2.96875rem;height:100%;}
+
+#fenx{position:absolute;top:0;left:0;width:100%;height:100%;display: none;z-index:300;}
+#fenx.hide{opacity: 0;transition:all .8s;-webkit-transition:all .8s;}
+#fxmc{position: absolute;top:0;left:0;width:100%;opacity: 0;transition:all 2s;-webkit-transition:all 2s;}
+#gif{position: absolute;top:0;left:0;width:100%;height:100%;z-index: 110;background:url(../images/a.png) no-repeat;background-size:100% auto;opacity: 0;animation: gif .7s infinite;-webkit-animation: gif .7s infinite;}
+#fxmc.show{opacity: 1;}
+#gif.show{opacity: 1;transition:all 2s;-webkit-transition:all 2s;}
+
+.andr{display: none;position:absolute;top:0;left:0;width:100%;}
+
+@keyframes gif{
+    0%{background:url(../images/a.png) no-repeat;background-size:100% auto;}
+    50%{background:url(../images/b.png) no-repeat;background-size:100% auto;}
+    100%{background:url(../images/a.png) no-repeat;background-size:100% auto;}
+}
+@-webkit-keyframes gif{
+    0%{background:url(../images/a.png) no-repeat;background-size:100% auto;}
+    50%{background:url(../images/b.png) no-repeat;background-size:100% auto;}
+    100%{background:url(../images/a.png) no-repeat;background-size:100% auto;}
+}
