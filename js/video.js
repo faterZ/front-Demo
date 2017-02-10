@@ -281,4 +281,7 @@ function addClass(obj, cl) {
 function removeClass(obj, cl) {
     obj.className = obj.className.replace(new RegExp("(\\s|^)" + cl + "(\\s|$)"), "");
 }
+function init(){
+
+}
 

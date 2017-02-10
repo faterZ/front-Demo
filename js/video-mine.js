@@ -14,12 +14,13 @@ var u = navigator.userAgent,
     isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 
 
- var video = document.getElementById("video");
+var video = document.getElementById("video");
 var loadingTag = document.getElementById('lodding'),
     loadingStatus = loadingTag.children[1],
     mohu =  loadingTag.children[0],
     startnum = 0,
     istest = true,
+    typenum = 1,//选项值默认1
     selectBtn = document.getElementById('btns');
 /**
  * 添加类
@@ -99,72 +100,76 @@ function videoPlay(){
     video.play();
     video.play();
 }
-/**
- * loading
- * @type {number}
- */
-var stimer = setInterval(function(){
-    startnum++;
-    loadingStatus.innerText = startnum + '%';
-    mohu.style.opacity = 1 - startnum / 100;
-    if(startnum == 100) {
-        clearInterval(stimer);
-        loadingStatus.innerHTML = '';
-        removeClass(loadingStatus, 'ldnum');
-        addClass(loadingStatus, 'play');
-        videoPlay();
-    }
-},50);
 
-/**
- * 点击播放按钮
- */
-loadingStatus.addEventListener("touchstart",function(){
-    if(this.innerText === '') {
-        // videoPlay();
-    }
-})
-/**
- * 视频开始play
- */
-video.addEventListener('play', function(){
-    // ovstatus = 1;
-    console.log("play")
-    getTime(this);
-}, false);
-/**
- * 选项选择
- */
-bts.addEventListener('touchstart', function(ev){
-    var e = ev || window.event,
-        target = e.target || e.srcElement,
-        type,a;
-    if(target.nodeName.toLowerCase() === 'i') {
-        video.pause();
-        // 获取点击类型
-        type = target.getAttribute('data-link');
-        selectBtn.style.display = 'none';
-        typenum = type;
-        !isAndroid && video.play();
-        switch(type) {
-            //选墨镜
-            case '1':
-                isAndroid && (oV.currentTime = 32.13);
-                break;
-            // 选镯子
-            case '2':
-                oV.currentTime = 46.14;
-                break;
-            // 选项链
-            case '3':
-                oV.currentTime = 81;
-                break;
-            // 选帽子
-            case '4':
-                oV.currentTime = 65.16;
+function bindEvent(){
+    /**
+     * 选项选择
+     */
+    selectBtn.addEventListener('touchstart', function(ev){
+        var e = ev || window.event,
+            target = e.target || e.srcElement,
+            type,a;
+        if(target.nodeName.toLowerCase() === 'i') {
+            video.pause();
+            // 获取点击类型
+            type = target.getAttribute('data-link');
+            selectBtn.style.display = 'none';
+            typenum = type;
+            !isAndroid && video.play();
+            switch(type) {
+                //选墨镜
+                case '1':
+                    isAndroid && (video.currentTime = 32.13);
+                    break;
+                // 选镯子
+                case '2':
+                    video.currentTime = 46.14;
+                    break;
+                // 选项链
+                case '3':
+                    video.currentTime = 81;
+                    break;
+                // 选帽子
+                case '4':
+                    video.currentTime = 65.16;
+            }
+            isAndroid && video.pause();
+            video.play();
+            istest = false;
         }
-        isAndroid && oV.pause();
-        oV.play();
-        istest = false;
-    }
-}, false);
+    }, false);
+    /**
+     * 视频开始play
+     */
+    video.addEventListener('play', function(){
+        // ovstatus = 1;
+        console.log("play")
+        getTime(this);
+    }, false);
+    /**
+     * 点击播放按钮
+     */
+    loadingStatus.addEventListener("touchstart",function(){
+        if(this.innerText === '') {
+            videoPlay();
+        }
+    })
+}
+(function init(){
+    /**
+     * loading
+     * @type {number}
+     */
+    var stimer = setInterval(function(){
+        startnum++;
+        loadingStatus.innerText = startnum + '%';
+        mohu.style.opacity = 1 - startnum / 100;
+        if(startnum == 100) {
+            clearInterval(stimer);
+            loadingStatus.innerHTML = '';
+            removeClass(loadingStatus, 'ldnum');
+            addClass(loadingStatus, 'play');
+        }
+    },50);
+    bindEvent();
+})();

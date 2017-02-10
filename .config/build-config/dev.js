@@ -23,8 +23,8 @@ var devEntryList = {
     },
     video: {
         HtmlPluginConf: {
-            filename: "./video.html",
-            template: "./video.ejs"
+            filename: "./video-demo1.html",
+            template: "./video-demo1.ejs"
         }
     }
 }
